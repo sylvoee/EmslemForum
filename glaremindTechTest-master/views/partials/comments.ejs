@@ -1,0 +1,12 @@
+
+<div class="display-comments">
+    <% if(docs == 'undefined'){%>
+     <p></p>
+    <%}else{%>
+     <% docs.forEach(doc =>{%>
+         <p><%= doc.comment  %> </p>
+
+     <%}) %> 
+    <%} %> 
+
+</div>

@@ -1,0 +1,145 @@
+<!-- footer Start -->
+<div class="banner wow zoomIn bg-info" data-wow-delay="0.1s">
+  <div class="container">
+      <% if(typeof aUser != 'undefined'){%>
+          <h3 class="h3 text-white">Emslem, THe Voice of All</h3>
+          <p>
+              <a href="https://web.facebook.com/e-forum"><i class="fab fa-facebook-square fa-4x" aria-hidden="true"></i></a>
+              <a href=""><i class="fab fa-instagram fa-4x" aria-hidden="true"></i></a>
+              <a href=""><i class="fab fa-google-plus fa-4x" aria-hidden="true"></i></a>
+              <a href=""><i class="fab fa-snapchat fa-4x" aria-hidden="true"></i></a>
+          </p>
+       <%}else{%>
+          <div class="section-header text-center">
+              <p>Subcribe and have the ability to share your views</p>
+              <h2>Be an Emslemist........<span>By</span> Subscribing</h2>
+          </div>
+          <div class="container banner-text">
+              <p>
+                  <a href="https://web.facebook.com/e-forum"><i class="fab fa-facebook-square fa-4x" aria-hidden="true"></i></a>
+                  <a href="https://www.instagram.com/eboigbeosagie/"><i class="fab fa-instagram fa-4x" aria-hidden="true"></i></a>
+                  <a href=""><i class="fab fa-google-plus fa-4x" aria-hidden="true"></i></a>
+                  <a href=""><i class="fab fa-snapchat fa-4x" aria-hidden="true"></i></a>
+              </p>
+              <a href="/signUp" class="btn">Subscribe</a>
+          </div>
+       <%} %> 
+  </div>
+</div>
+<!-- Banner End -->
+</section>
+
+<section class="s-footer">
+    <div class = "text-center bg-dark text-white">
+        <p >Alright Reserved</p>
+        <p>Elslem forum</p>
+        <p>2021</p>
+    </div>
+   
+       
+           <!-- Back to top button -->
+           <a href="#" class="btn back-to-top"><i class="fa fa-chevron-up"></i></a>
+           
+           
+           <!-- Pre Loader -->
+           <div id="loader" class="show">
+               <div class="loader"></div>
+           </div>
+   </section>
+   
+           <script src="/javascript/customJquery.js"></script>
+   
+           
+           <!-- JavaScript Libraries -->
+           <script>
+               ClassicEditor
+                   .create( document.querySelector( '#editor' ) )
+                   .catch( error => {
+                       console.error( error );
+                   } );
+           </script>
+   
+           <script>
+               // prevent loading form when page refresh
+               let sendMessageButton = document.getElementById('sendMessageButton');
+               sendMessageButton.addEventListener('click', ()=>{
+                 // alert("HURRAY");
+               });
+           </script>
+          
+               <script>
+                 function openCity(evt, cityName) {
+       // Declare all variables
+       var i, tabcontent, tablinks;
+   
+       // Get all elements with class="tabcontent" and hide them
+       tabcontent = document.getElementsByClassName("tabcontent");
+       for (i = 0; i < tabcontent.length; i++) {
+           tabcontent[i].style.display = "none";
+       }
+   
+       // Get all elements with class="tablinks" and remove the class "active"
+       tablinks = document.getElementsByClassName("tablinks");
+       for (i = 0; i < tabcontent.length; i++) {
+           tablinks[i].className = tablinks[i].className.replace(" active", "");
+       }
+   
+       // Show the current tab, and add an "active" class to the link that opened the tab
+       document.getElementById(cityName).style.display = "block";
+       evt.currentTarget.className += " active";
+   }
+   
+               </script>
+   
+   <script>
+       (function(d, s, id) {
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) return;
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+       fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+       
+   </script>
+   
+   <script>
+       function myFunction() {
+         var input, filter, table, tr, td, i, txtValue;
+         input = document.getElementById("myInput");
+         filter = input.value.toUpperCase();
+         table = document.getElementById("myTable");
+         tr = table.getElementsByTagName("tr");
+         for (i = 0; i < tr.length; i++) {
+           td = tr[i].getElementsByTagName("td")[0];
+           if (td) {
+             txtValue = td.textContent || td.innerText;
+             if (txtValue.toUpperCase().indexOf(filter) > -1) {
+               tr[i].style.display = "";
+             } else {
+               tr[i].style.display = "none";
+             }
+           }       
+         }
+       }
+       </script>
+       
+   
+           <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+           <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+            <script src="lib/easing/easing.min.js"></script>
+           <script src="lib/wow/wow.min.js"></script>
+           <script src="lib/waypoints/waypoints.min.js"></script>
+           <script src="lib/typed/typed.min.js"></script>
+           <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+           <script src="lib/isotope/isotope.pkgd.min.js"></script> -->
+           <script src="lib/lightbox/js/lightbox.min.js"></script>
+   
+   
+          
+           
+           
+           <!-- Template Javascript -->
+           <script src="/js/main.js"></script>
+       </body>
+   </html>
+   

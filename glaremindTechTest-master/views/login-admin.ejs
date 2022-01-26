@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Admin</title>
+    <%- include('partials/headerPlugin.ejs') %> 
+</head>
+<body class = "auth-form">
+    <div class="container">
+    
+
+    <div class = "form col-sm-10  mt-5 p-2 offset-1 sign-up">
+      
+        <div class="card">
+            <div class="card-body ">
+           
+           <form action="/login" method="POST" class = "form-group col-md-6 offset-2"  >
+            <h6 class = "text-success offset-10 h6 ">Admin Login</h6>
+            <i class = "fa fa-sign-in fa-2x  text-success"></i>
+            <hr class = "text-warning">
+            <div>
+
+                <%- include('partials/alert.ejs');  %> 
+                <label for="Username/Email">Username/Email</label>
+                <input type="email" class="form-control" name = "email" minlength="8" required>
+            </div>
+            <div>
+                <label for="">password</label>
+                <input type="password" class="form-control" name = "password" minlength="8" required>
+            </div>
+            <input type="hidden" name = "status" value = "osaz@forum">
+           
+            <div>
+                <button class="form-control btn btn-secondary mt-4">login</button>
+            </div>
+            <div class = "mt-5">
+                <a href="/confirm-email" class = "text-decoration-none">Forget password</a>
+                <a href="/signUP" class = "text-decoration-none offset-4">I do not have an account</a>
+            
+            </div>
+            <div>
+                <div>
+                    
+                </div>
+                
+            </div>
+        
+        </form>
+            </div>
+          </div>
+
+           
+</div>
+
+    </div>
+</body>
+<%- include('partials/footerPlugin.ejs')  %>
+</html>

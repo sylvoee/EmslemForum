@@ -1,0 +1,15 @@
+<div class="container output">
+      <p>
+          <% if(typeof someProduct != 'undefined'){%>
+            <p>
+              <% someProduct.forEach(el => {%>
+                  <li><%= el.name  %> </li>
+              <%}); %> 
+            </p>
+          <%}%> 
+      </p>
+    <div>
+        <button class="btn">Click me</button>
+    </div>
+</div>
+

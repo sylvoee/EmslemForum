@@ -1,0 +1,118 @@
+
+
+    <body data-spy="scroll" data-target=".navbar" data-offset="51">
+     
+       <!-- Blog Start -->
+       
+     <div>
+      <% if (typeof docs[0] == 'undefined') {%>
+        <% if(aUser.completeStatus != 'completed'){%>
+          <!-- <a href="/get-profile">Create Profile</a> -->
+         
+          <img src="/img/team-3.jpg" class="offset-5 " style="width:20%; margin-top: 10%; " alt="">
+         <div class="text-center " style="margin-bottom: 30%;">
+          <p class="mt-3">No Profile Yet</p>
+         <em >
+          <a  href="/" ><button class="btn">Home</button></a>
+          <a href="/all-blog-post"><button class="btn">View All Blog Post</button></a>
+          <a href="/all-blog-post"><button class="btn">Latest Post</button></a>
+         </em>
+         
+         </div>
+        <%}%>
+     </div>
+
+        
+     <% }else{%> 
+       <div class="blog" id="blog">
+        <div class="container">
+            <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+               
+                <div class="p-4">
+                  <h2 class="aTitle text-center">Profile</h2>
+       <hr>
+                  <p>Who Am I ?</p>
+                </div>
+        
+      <h3 class="typed-text"><%= docs[0].user.name || ""  %> </h3>
+        
+            </div>
+
+             
+            <div class="row my-profile" style="height: 100vh; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:large;">
+              
+            <div class="col-sm-5 wow zoomIn">
+              <div class="img profile-image ">
+
+                <% if(docs[0].sex == "Male"){%>
+               <img src="/img/male-avatar.png" alt="" style="width: 100%; height: 90%;  ">
+                <%}else{%>
+                <img src="/img/female-avatar.png" alt="" style="width: 100%; height: 90%; ">
+                <%}%> 
+
+            
+              </div>
+            </div>
+
+            <div class="col-sm-7 d-flex justify-content-center">
+              
+              <div class="row info wow zoomIn" data-wow-delay="0.1s">
+               <div class="col-sm-5">
+                 <h4 class="h4">Biography</h4>
+                 <em><%= "I was born on " +  (docs[0].DOB).toLocaleString("en")  %> </em>
+                 <br>
+                 <em><%= "Am a " +  (docs[0].sex)  %> </em>
+                 <em><%= "from " + docs[0].place || "" %> </em>
+                 <br>
+                 <em><%= "Am an " + docs[0].person  %></em>
+                 <br>
+                 <b>Am</b>
+                 <br>
+                 <i><%= docs[0].maritalStatus || "just me"  %> </i>
+                 <p><%= "A graduate / student of " + docs[0].institute || " "  %></p>
+                 <hr class="text-warning">
+
+                 <b>occupation: <%= docs[0].occupation || " " %> </b>
+                 <p>
+                  <b>Hobby : </b><%= docs[0].hobby  %>
+                 </p>
+                 <details value = "info"> 
+                  <summary>Purpose of Joining Emselem</summary> 
+                  <b><%= docs[0].purpose  %></b>
+                   
+                 </details>
+
+               </div>
+               <div class="col-sm-5">
+                 <h4 class="h4">Favourite Quote</h4>
+                 <p><%= docs[0].quote  || " "%> </p>
+                 <hr>
+                 <h4 class="h4">Bordering Issues</h4>
+                 <p><%= docs[0].issue  || " " %> </p>
+               <hr>
+               <h4 class="h4">Social Media Handle(s)</h4>
+               <hr>
+               <div class="team-social">
+                 <a class="btn" href="<%= docs[0].facebook  %> "><i class="fab fa-facebook-f"></i></a>
+                 <a class="btn" href="<%= docs[0].instagram  %> "><i class="fab fa-instagram"></i></a>
+             </div>
+               </div>
+              <div class="mt-4">
+                <% if(typeof aUser != 'undefined'){%>
+                  <% if(docs[0].user.id == aUser._id){%>
+               <a href="/edit-my-profile/<%= docs[0].id  %> " class="btn">Edit Profile</a>
+                  <%} %> 
+                   <%} %> 
+              </div>
+              </div>
+           </div>
+            </div>
+            </div>
+            <%} %> 
+
+    </div>
+    
+      <section class="mt-4">
+      <div>
+      <!-- Footer End -->
+      

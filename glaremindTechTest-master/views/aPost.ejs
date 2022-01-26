@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <% if(typeof aPost == 'undefined'|| typeof aPost == 'undefined'){%>
+            <p></p>
+            <%}else{%>
+
+        <title> <%= aPost.title  %>  </title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
+
+    </head>
+
+    <body data-spy="scroll" data-target=".navbar" data-offset="51" >
+        <section>
+    
+       <!-- Blog Start -->
+       <div class="blog 0ffset-4" id="blog" >
+        <div class="container mt-5">
+            <div class="section-header text-center wow zoomIn p-3 col-8 offset-3" data-wow-delay="0.1s"> 
+                <h2 class="h2 typed-text" style="font-family: cursive; font-size: x-large;"><%= aPost.title  %></h2>
+            </div>
+
+            <div class="row aPost">
+                 <div class="col-sm-3 p-2 other-blogs" style="overflow:scroll; height:150vh;">
+                <% if(typeof trendingArticles == 'undefined' || trendingArticles == ''){%>
+                <p class="text-center">NO Trending Story</p>
+               <% }else{%>
+                <div><h3 class="textinfo">Latest Stories</h3></div>
+                <% trendingArticles.forEach((art)=>{%>
+                    <div class="mb-3 ">
+                        <div class="img wow fadeInUp">
+                            <% if(typeof art.image[0] == 'undefined'){%>
+            <img style="width: 100%;" src="/img/hero.png %> " alt=""> 
+                                <%}else{%>
+                <img style="width: 100%;" src="/uploads/<%= art.image[0].filename %> " alt=""> 
+                                    <%}%>
+                           
+                        </div>
+
+                        <div class="title">
+                            <b class=""><%= art.title  %> </b>
+                        </div>
+                        <% if(typeof art.user == 'undefined'){%>
+                            <p></p>
+                              <%}else{%>
+                               Posted By Admin
+                              <%}%> 
+                        <div class="time">
+                            <small><i><%= art.createdAt.toLocaleString('en')  %> </i></small>
+                        </div>
+                        <div >
+                            <a class="btn" href="/viewPost/<%= art.id  %> ">View Post</a>
+                        </div>
+                        
+                    </div>
+                    <hr>
+                <%}) %> 
+               <%} %> 
+            </div>
+             
+                <div class="col-sm-9 main" >
+            <div class="container">
+                    <div class="col-lg-12">
+                        <div class="blog-item wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="blog-img">
+                               <% if(typeof aPost.image[0] == 'undefined'){%>
+             <img src="/img/hero.png" style="width: 60%;" alt="Alt-pix">            
+                               <%}else{%>
+            <img src="/uploads/<%= aPost.image[0].filename %> %>" style="height: 70vh;" alt="Blog">
+                               <%} %> 
+                            </div>
+                            <div class="blog-text">
+                                <div class="blog-meta">
+                  
+                    <p> Posted By Admin </p>
+                   <br>
+                                    <p><%= aPost.createdAt.toLocaleString('en-US') %> </p>
+                                    <% let countComments = 0 %> 
+                                    <% if(typeof comment == 'undefined'){%>
+                           <p></p>
+                                   <%}else{%>
+                                    <% comments.forEach((ct)=>{%>
+                                        <% if(ct.postID._id == aPost.id){%> 
+                                         <% countComments ++ %> 
+                                           
+                                               <% } %> 
+                                       <%}) %> 
+                                       <p><i class="far fa-comments"></i>  <%= countComments %> </p>
+                                   <%}%> 
+                                   
+                                    
+                                 <!-- facebook share -->
+                                    <div id="fb-root"></div>
+                                    <div class="fb-share-button" 
+                                    data-href="https://www.your-domain.com/your-page.html" 
+                                    data-layout="button_count">
+                                    </div>
+
+                <!-- like post -->
+            <form class="ml-3" action="/like-post"  method="POST">
+            <input type="hidden" value="<%= aPost.id %>" name ="postID">
+            <% let valid = false %> 
+            <% if(typeof aUser == 'undefined'){%>     
+            <button type="submit"disabled class="border-0 post-like" ><i class="far fa-thumbs-up text-primary"> </i></button>
+                <% let count = 0 %> 
+                <% if(typeof likes == 'undefined'){%>
+           <i></i>
+                <%}else{%>
+                    <% likes.forEach(like => {%>
+                        <% if(like.postID._id == aPost.id){ %>
+                            <% count ++  %>
+                        <%} %> 
+                <%}) %> 
+                <%}%> 
+                
+            <%= count %>
+
+            
+
+            <form class="ml-3" action="/dislike-post"  method="POST"><input type="hidden" value="<%= aPost.id %>" name ="postID">
+                <button  type="submit" disabled class="border-0 delete-like" ><i class="far fa-thumbs-down text-danger"> </i></button>
+                <% let counts = 0 %> 
+                <% if(typeof dislikes == 'undefined'){%>
+                 <i></i>
+                <%}else{%>
+                    <% dislikes.forEach(dis => {%>
+                        <% if(dis.postID._id == aPost.id){ %>
+                            <% counts ++  %>
+                        <%} %> 
+                <%}) %> 
+
+                <%} %> 
+            <%= counts %>
+                          </form> 
+                 
+                               
+            
+
+            <%}else{%>
+
+                <button type="submit" class="border-0 post-like" ><i class="far fa-thumbs-up text-primary"> </i></button>
+                    <% let count = 0 %> 
+
+                    <% if(typeof likes == 'undefined'){%>
+                 <i></i>
+                    <%}else{%>
+
+                        <% likes.forEach(like => {%>
+                            <% if(typeof like.postID == 'undefined'){%> 
+                                <i></i>
+                            <%}else{%>
+                                <% if(like.postID._id == aPost.id){ %>
+                                    <% count ++  %>
+                                <%} %> 
+                            <%} %> 
+
+                    <%}) %> 
+    
+                    <%} %> 
+                <%= count %> 
+            </form>
+
+           
+    <form class="ml-3" action="/dislike-post"  method="POST"><input type="hidden" value="<%= aPost.id %>" name ="postID"><button  type="submit" class="border-0 delete-like" ><i class="far fa-thumbs-down text-danger"> </i></button>
+                <% let countDis = 0 %> 
+                <% if(typeof dislikes == 'undefined'){%>
+                    <i></i>
+                       <%}else{%>
+                    <% dislikes.forEach(dis => {%>
+                        <% if(dis.postID._id == aPost.id){ %>
+                            <% countDis ++  %>
+                        <%} %> 
+                <%}) %>
+                <% } %> 
+
+                
+                <%= countDis %> 
+                          </form> 
+            
+            <%}%> 
+
+                </div>
+                <hr>
+                    <p class="blockquote-reverse" style="font-family: monospace;font-size: large;">
+                        <%- aPost.blog  %> 
+                    </p>
+                    <!-- comment -->
+                    <hr>
+                    <details>
+                        <summary style="list-style:none; color:rgb(64, 15, 129)"> Comment Here</summary>
+                    <% if(aPost.commentStatus == 'allowComment'){%>
+                        <% if(typeof aUser == 'undefined'){%>
+                    <p><a href="/login">Sign in to comment</a></p>
+                        <%}else{%>
+                            <form class="form-group" action = "/post-comment" method="POST">
+                                <div class="row">
+                                    <input type="hidden" name = "postID" value = <%= aPost.id  %> >
+                                    <input type="hidden" name = "user" value = <%= aUser._id  %>   >
+                                    <div class="col-sm-8 ml-0">
+                            <textarea cols="20" rows="5" name = "comment" class="form-control" required></textarea></div>
+                                <div class="col-sm-4"><button class="btn btn-info"> Comment</button></div>
+                               
+                                </div>
+                            </form>
+                        <%}%> 
+                    
+                    <%}else{%>
+                        <p>Admin does not allow comment</p>
+                    <%} %> 
+                    
+                                </details>
+                                <p p-2>
+                                   <!-- Read out Comment -->
+                                   <% if(typeof comments == 'undefined'){%>
+                             <i></i>
+                                   <%}else{%>
+
+                                    <% comments.reverse().forEach(comment => {%>
+                                       <%  myComment = comment %> 
+                                        <div>
+                                        <% if(comment.postID.id == aPost.id){%>
+    <blockquote>  <div > <a href="/view-a-profile/<%= comment.user.id %>"><%= comment.user.name %> <i class="fa fa-user"></i></a> </div>   </blockquote>
+    <p class="text-center " style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+        <%= comment.comment %></p>
+       
+
+        <!-- Deleting  comment -->
+                                     
+  <div class="more">
+       <p></p>
+     <% if(typeof aUser == 'undefined'){%>
+      <p></p>
+     <%}else{%>
+        <% if(comment.postID.user  == aUser._id || comment.user._id  == aUser._id ){%>
+  
+            <details class="offset-0">
+                <summary style="list-style: none;" >More</summary>
+                <form method="POST" action="/delete-comment?_method=DELETE" >
+                    <input type="hidden" name="id" value="<%= comment.id  %>">
+                    <button type="submit" class="border-0"><i class="fa fa-trash"></i></button>
+                </form>
+                <details>
+                   
+                    <summary style="list-style:none"> <i class="fa fa-pen"></i></summary>
+                    
+                    <form class="form-group" method="POST" action="/edit-comment?_method=PUT" >
+                        <input type="hidden" name="id" value="<%= comment.id  %>">
+                <textarea cols="30" rows="15" class="form-control" type="text" name="comment">
+                            <%= comment.comment %></textarea>
+                <button type="submit" class="border-0 text-secondary">edit</i></button>
+                    </form>
+                </details>
+        
+            </details>
+       <% }else{%>
+ <p></p>
+       <%} %> 
+
+     <%} %> 
+
+  </div>
+
+        <div class="blog-meta offset-3">
+                                            
+    
+ </b></i></a> </p>
+
+<p ><i class="far fa-calendar-alt text-primary"></i><i class="text-warning"><%= aPost.createdAt.toLocaleString('en-US')  %></i> </p>
+               
+
+    <!-- like and dislike comments-->
+    <% if(typeof aUser =='undefined'){%>
+        
+        <form class="ml-3" action="/like-comment"  method="POST">
+            <input type="hidden" value="<%= comment.id  %>" name ="commentID">
+            <input type="hidden" value="<%= aPost.id  %>" name="postID"> 
+            <button type="submit" disabled class="border-0" >
+            <i class="far fa-thumbs-up text-primary"> </i></button>
+                              
+               
+            <!-- To output like-comments counts -->
+            <% let countLikeComments = 0 %> 
+            <% if(typeof likeComments != 'undefined'){%>
+             
+                <% likeComments.forEach(like => {%>
+                    <% if(like.commentID.id == comment.id ){ %>
+                        <% countLikeComments ++ %>
+            <%}%>
+            <%}) %> 
+            <b><%= countLikeComments %> </b>
+                    </form>
+           <%}else{%>
+         <p></p>
+           <%}%>
+           
+    
+                <form class="ml-3" action="/dislike-comment"  method="POST">
+                    <input type="hidden" value="<%= comment.id  %>" name ="commentID">
+                    <input type="hidden" value="<%= aPost.id  %>" name="postID"> 
+                    <button type="submit" disabled class="border-0" >
+                    <i class="far fa-thumbs-down text-primary"> </i></button>
+                                      
+                    <!-- To output dislike-comments counts -->
+                    <% if(typeof dislikeComments  != 'undefined'){%>
+                        <% let countDislikeComments = 0 %> 
+                        <% dislikeComments.forEach(dis => {%>
+                            <% if(dis.commentID.id == comment.id ){ %>
+                              <% countDislikeComments ++ %> 
+                   
+                   <%}%>
+                    <%})%> 
+                    <b><%= countDislikeComments %> </b>
+                            </form>
+                    <%}%>
+    
+                    
+    <%}else{%>
+        <form class="ml-3" action="/like-comment"  method="POST">
+            <input type="hidden" value="<%= comment.id  %>" name ="commentID">
+            <input type="hidden" value="<%= aPost.id  %>" name="postID"> 
+            <button type="submit"  class="border-0" >
+            <i class="far fa-thumbs-up text-primary"> </i></button>
+                              
+               
+            <!-- To output like-comments counts -->
+            <% let countLikeComments = 0 %> 
+            <% if(typeof likeComments != 'undefined'){%>
+             
+                <% likeComments.forEach(like => {%>
+                    <% if(like.commentID.id == comment.id ){ %>
+                        <% countLikeComments ++ %>
+            <%}%>
+            <%}) %> 
+            <b><%= countLikeComments %> </b>
+                    </form>
+           <%}else{%>
+         <p></p>
+           <%}%>
+           
+           
+    
+                <form class="ml-3" action="/dislike-comment"  method="POST">
+                    <input type="hidden" value="<%= comment.id  %>" name ="commentID">
+                    <input type="hidden" value="<%= aPost.id  %>" name="postID"> 
+                    <button  type="submit" class="border-0" >
+                    <i class="far fa-thumbs-down text-primary"> </i></button>
+                                      
+                    <!-- To output dislike-comments counts -->
+                    <% if(typeof dislikeComments  != 'undefined'){%>
+                        <% let countDislikeComments = 0 %> 
+                        <% dislikeComments.forEach(dis => {%>
+                            <% if(dis.commentID.id == comment.id ){ %>
+                              <% countDislikeComments ++ %> 
+                   
+                   <%}%>
+                    <%})%> 
+                    <b><%= countDislikeComments %> </b>
+                            </form>
+                    <%}%>
+    
+                    
+                    
+    </div>
+    
+    <details style="cursor: pointer;" >
+        <!-- reply comment -->
+    <div>
+    <% let comentComments = 0 %> 
+     <!-- To output like-comments counts -->
+            <% if(typeof commentComment == 'undefined'){%>
+        
+            <%}else{%>
+                <% commentComment.reverse().forEach(cc => {%>
+        <% if(cc.commentID == comment.id){%>
+            <% comentComments ++   %>  
+            <blockquote>  <div > <a href="/view-a-profile/<%= cc.user.id  %>"><%= cc.user.name  %> <i class="fa fa-user"></i></a> </div>   </blockquote>
+         
+            <p class="wow fadeInUp"><i class="p-1" style="font-size: smaller;"><%= cc.commentComment  %> </i> 
+           
+    
+            <i class="far fa-calendar-alt text-info ml-2"></i> <small class="text-warning "><%= cc.createdAt.toLocaleString('en-US')%>  </small>  
+        </p>
+        <hr>
+        <%} %> 
+          
+        
+      
+    <%}) %> 
+            <%} %>
+     
+    </div>
+    
+    <summary class="pb-5 text-info" style="cursor: pointer; list-style: none;">  <b><%= comentComments %> </b> <% if(comentComments > 1){%> <b>Replies</b> <%}else{%> <b>Reply</b> <% } %> </summary>
+    
+    
+    <form class=" form-group" action="/post-comment-comment" method="post">
+        <i class="fa fa-user"></i>
+        <textarea name ="commentComment" cols="30" class="form-control" rows="5" required></textarea>
+        <input type="hidden" value="<%= aPost.id  %>" name="postID"> 
+            <input type="hidden" name="commentID" value="<%= comment.id  %>">
+        <button type="submit" class="border-0 mt-2" >Comment</button></form>
+    </details>
+    </div>
+    
+    <%}%> 
+    
+            </form>
+           
+<!-- reply comments ends here -->
+                                        </div>
+                        
+                                        <hr>
+                                        <%} %> 
+                                   <% }) %>
+                                   <% } %> 
+                                   <!-- Comment ends here -->
+                                </p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           
+        </div>
+        <!-- Blog End -->
+                  </div>
+                
+                    
+        </div>
+                </div>
+                
+            </div>
+           
+    </div>
+     
+    <%}%>
+    </div>
+    </section>
+
+    <%- include('partials/footer.ejs') %> 
+    
+        
+      

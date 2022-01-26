@@ -1,0 +1,231 @@
+.auth-form{
+    background:#000000;
+    color:white;
+    font-family: fantasy;
+}
+
+.sign-up input{
+    border-top:none;
+    border-left: none;
+    border-right: none;
+    color:rgb(245, 245, 185);
+   
+    background-color: rgb(22, 18, 18);
+    
+}
+.card{
+    background-color: rgb(15, 13, 13);
+    color:white
+}
+/* form{
+    -webkit-box-reflect: below 20px;
+} */
+
+.change-password{
+    color:white;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  /* Style the list */
+ul.tab {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Float the list items side by side */
+ul.tab li {float: left;}
+
+/* Style the links inside the list items */
+ul.tab li a {
+  display: inline-block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of links on hover */
+ul.tab li a:hover {background-color: #ddd;}
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {background-color: #ccc;}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+
+/* Styling the moderator search button */
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  padding: 1.3em;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 1.2em;
+}
+
+
+  
+
+@media only screen and (max-width: 500px) {
+    .card {
+      background-color: rgb(16, 2, 32);
+      font-size: x-small;
+    }
+    body{
+        margin: 0px;
+        offset-distance: 0px;
+    }
+
+    button{
+        width:50%;
+        background: pink;
+    }
+    form a{
+        color:white;
+    }
+
+    .f-footer{
+      font-size:small;
+    }
+
+    .s-footer{
+      font-size:small;
+    }
+    i{
+      font-size: small;
+    }
+
+    .an-image{
+      display: none;
+    }
+
+    .image-area{
+      display: none;
+    }
+    
+  }
+
+
+  /* tabs */
+  .col h3{
+    text-align: center;
+  }
+
+  /* Profile Style */
+  .my-profile h4{
+    color:rgb(108, 8, 133);
+  }
+  .profile-image{
+    /* background-image: url("../img/team-3.jpg"); */
+    background-color: #cccccc;
+    background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  height: 100vh;
+  
+  }
+  .profile-image a{
+    margin-top: 90vh;
+  }
+
+  .auth-form{
+    margin-right: 2.3em;
+    
+  }
+
+  .auth-form button{
+    font-size: small;
+    
+  }
+
+  @media screen {
+    
+  }
+
+
+  

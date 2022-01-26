@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign UP</title>
+    <%- include('partials/headerPlugin.ejs') %> 
+</head>
+<body class = "auth-form" > 
+    <div class="container  wow fadeInUp" daa-wow-deltay="0.1s">
+    
+    <div class = "form col-sm-10  mt-1 p-1 offset-1 sign-up">
+      
+        <div class="card">
+            <div class="card-body ">
+           
+           <form action="/login" method="POST" class = "form-group col-md-6 offset-1"  >
+            <h6 class = "text-success offset-7 h6 ">Login</h6>
+            <i class = "fa fa-sign-in  text-success"></i>
+            <hr class = "text-warning">
+            <div>
+
+                <%- include('partials/alert.ejs');  %> 
+                <label for="Username/Email">Username/Email</label>
+                <input type="email" class="form-control" name = "email" minlength="8" required>
+            </div>
+            <div>
+                <label for="">password</label>
+                <input type="password" class="form-control" name = "password" minlength="8" required>
+            </div>
+           
+            <div>
+                <button class="form-control btn btn-secondary mt-4">login</button>
+            </div>
+            <div class = "mt-5">
+                <a href="/confirm-email" class = "text-decoration-none">Forget password</a>
+                <a href="/signUP" class = "text-decoration-none offset-3">I do not have an account</a>
+            
+            </div>
+            <div>
+                <div>
+                    
+                </div>
+                
+            </div>
+        
+        </form>
+            </div>
+          </div>
+        
+           
+</div>
+
+    </div>
+</body>
+<%- include('partials/footerPlugin.ejs')  %>
+<%- include('partials/footer.ejs') %> 
+</html>

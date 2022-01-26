@@ -1,0 +1,166 @@
+
+
+        <!-- Hero Start -->
+        <div class="hero" id="home">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="hero-content">
+                            <div class="hero-text">
+                                <p>We are</p>
+                                <h1 class="h2 text-info">Emslem Forum</h1>
+                                <h5 class="h5 typed-text">THE VOICE AND THE OPPORTUNITIES </h5>
+                                <h2></h2>
+                                <br>
+                    <div class="typed-text" style="font-family: Georgia, 'Times New Roman', Times, serif;"> BE THE FIRST TO SEE THE LATEST, Job Posting, Entertainment, Politics, Tourism, Culture, Business, Job vacany and More</div>
+                            </div>
+
+                            <% if(typeof aUser == 'undefined'){%>
+                                <div class="hero-btn ">
+                                    <a class="btn " href="/signUp">Subscribe</a>
+                                    <a class="btn btn-success" href="/login">Sign In</a>
+                                </div>
+                            <%}else{%>
+                            <h3 class="text-white">Welcome <%= aUser.name  %> </h3>
+                            <%}  %> 
+
+                           
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 d-none d-md-block">
+                        <div class="hero-image">
+                            <img src="img/unnamed.png" alt="Hero Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero End -->
+
+
+        <!-- About Start -->
+        <div class="about wow fadeInUp" data-wow-delay="0.1s" id="about">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="about-img">
+                            <img src="img/abt.jpeg" alt="Image">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-content">
+                            <div class="section-header text-left">
+                                <p>Learn About Us</p>
+                                <h2>We Are Emslem</h2>
+                            </div>
+                            <div class="about-text">
+                                <p>
+                                    A well know forum in Africa and the world at large. Emslem is a forum where authenticated or real issues are discuss
+                                </p>
+                            </div>
+                            <div class="skills">
+                                <div class="skill-name">
+                                    <p>Politics</p><p>85%</p>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="skill-name">
+                                    <p>Tourism</p><p>100%</p>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="skill-name">
+                                    <p>Job Vacancies</p><p>95%</p>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="skill-name">
+                                    <p>Culture</p><p>95%</p>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="skill-name">
+                                    <p>Entertainment</p><p>90%</p>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="skill-name">
+                                    <p>Business</p><p>95%</p>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="skill-name">
+                                    <p>Sport</p><p>100%</p>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <a class="btn" href="/all-blog-post"> More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+        
+        
+        <!-- Testimonial Start -->
+        <div class="testimonial wow fadeInUp" daa-wow-deltay="0.1s" id="review">
+            <div class="container">
+                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                    <p>From Blog</p>
+                    <h2>Trending Articles</h2>
+                </div>
+               
+                <div class="owl-carousel testimonials-carousel">
+                      <% if(typeof trendingArticles == 'undefined' || trendingArticles == ''){%>
+                        <p class="text-center text-info">No Trending Article</p>
+                      <%}else{%>
+                         <% trendingArticles.forEach((art)=>{%>
+                           
+                            <div class="testimonial-item">
+                                <div class="testimonial-img">
+                    <% if(typeof art.image[0] == 'undefined'){%>
+                        <img style="width: 30%;" src="/img/hero.png %> " alt=""> 
+                                            <%}else{%>
+                            <img style="width: 30%;" src="/uploads/<%= art.image[0].filename %> " alt=""> 
+                                                <%}%>
+                                </div>
+                                <div class="testimonial-text">
+                                    <h4 class="text-info h3">
+                                       <%= art.title  %> 
+                                    </h4>
+                                    <small>
+                                    
+                                        <br>
+                                    <i><%= art.createdAt  %> </i>
+                                    </small>
+                                   <div>
+                                       <b>Posted By</b> <a href="/view-a-profile/<%= art.user.id  %>"><%= art.user.name %> </a>
+                                   </div>
+                                    <div><a href="/viewPost/<%= art.id  %>" class="text-decoration-none">More</a></div>
+                                </div>
+                               
+                         
+                            </div>
+
+                         <%}) %> 
+                      <%} %> 
+                    
+                </div>
+            </div> 
+        </div>
+        <!-- Testimonial End -->
+
+        <%- include('partials/footer.ejs') %> 
+
+        
+
+       

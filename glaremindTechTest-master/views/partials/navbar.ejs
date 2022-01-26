@@ -1,0 +1,70 @@
+<!-- Nav Bar Start -->
+<div class="navbar navbar-expand-lg bg-light navbar-light">
+    <div class="container-fluid">
+        <a href="/" class="navbar-brand">Emslem</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse  justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto">
+               
+               
+                <% if(typeof aUser == 'undefined'){%>
+                   
+                    <a href="/" class="nav-item nav-link active" style="color:rgb(209, 181, 22)">Home</a>
+                    <a href="/all-blog-post" class="nav-item nav-link" style="color:rgb(228, 198, 28)">All Blog Post</a>
+                    <a href="/login" class="nav-item nav-link" style="color:rgb(224, 194, 19)">Login</a>
+                    <a href="/signUp" class="nav-item nav-link" style="color:rgb(219, 191, 33)">Register</a>
+                   
+                <%}else{%>
+
+             
+                <% if(aUser.status == 'osaz@forum'){%>
+                    <a href="/" style="color: rgb(241, 97, 241);"  class="nav-item nav-link ">Home</a>
+                    <a href="/all-blog-post" style="color: rgb(241, 97, 241);"  class="nav-item nav-link ">All Blog Post</a>
+                    <a href="/admin-dashboard" style="color: rgb(241, 97, 241);" class="nav-item nav-link">Admin Dashboard</a>
+                    <a href="/post-blog" style="color: rgb(241, 97, 241);" class="nav-item nav-link">Post Blog</a>
+                    <a href="/all-blog" style="color: rgb(241, 97, 241);" class="nav-item nav-link">Edit Blog</a>
+                    <a href="/moderator" style="color: rgb(241, 97, 241);" class="nav-item nav-link">Moderator</a>
+                    <%} %> 
+              
+
+                    <% if(aUser.status != 'osaz@forum'){%>
+                        <a href="/" style="color: rgb(241, 97, 241);"  class="nav-item nav-link">Home</a>
+                        <a href="/all-blog-post" style="color: rgb(241, 97, 241);" class="nav-item nav-link">All Blog Post</a>
+                       
+                    
+                        <%} %> 
+
+                    <%}%>
+                
+            </div>
+
+            <% if(typeof aUser == 'undefined'){%>
+                <i></i>
+                        <%}else{%>
+
+                            <div class="offset-3 text-warning">
+                                <!-- <a class="nav-item nav-link text-white" href="/login">login</a> -->
+                                <details>
+                    <summary style="list-style:none"><i class="fa fa-user"> <%= aUser.name %> </i></summary>
+            <a class="nav-item nav-link text-warning" href="/view-a-profile/<%= aUser._id  %> ">View Profile</a>
+        <% if(aUser.profileStatus !='completed'){%>
+            <a class="nav-item nav-link text-warning" href="/get-create-profile">Create profile</a>
+       <% }else{%>
+         <i></i>
+       <%} %> 
+            <a class="nav-item nav-link text-warning" href="/logout">logOut</a>
+
+                                </details>
+                                
+                            </div>
+
+                        <%} %> 
+            
+            
+        </div>
+    </div>
+</div>
+<!-- Nav Bar End -->

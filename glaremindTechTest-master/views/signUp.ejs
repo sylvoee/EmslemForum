@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <%- include('partials/headerPlugin.ejs') %> 
+</head>
+<body class = "auth-form">
+    <div class="container  wow fadeInUp" daa-wow-deltay="0.1s">
+
+    <div class = "form col-sm-10  mt-3 p-1 offset-1 sign-up">
+      
+        <div class="card">
+            <div class="card-body ">
+           <form action="/signUP" method="POST" class = "form-group col-md-6 offset-1"  >
+             
+        <%- include('partials/alert.ejs')  %> 
+
+            <h5 class = "text-success h5">Register</h5>
+            <i class = "fa fa-user  offset-6 text-success"></i>
+            <hr class = "text-warning">
+            <div>
+                <label for="Name">Name</label>
+                <input class = "form-control" type="text" name = "name">
+            </div>
+            <div>
+                <label for="Username/Email">Email</label>
+                <input type="text" class="form-control" name = "email" >
+            </div>
+
+            <div>
+                <label for="">password</label>
+                <input type="password" class="form-control" name = "password">
+            </div>
+            <div>
+                <label for="">Confirm password</label>
+                <input type="password" class="form-control" name = "confirmPassword" >
+            </div>
+            <div>
+                <button class="btn btn-success mt-2 ">Register</button>
+                <button class ="btn btn-danger offset-3 mt-1" type="reset">Reset</button>
+            </div>
+            <div class="mt-2"><a href="/login" class = "text-decoration-none ">Already have an account</a></div>
+            <div>
+                <div>
+                    
+                </div>
+                
+            </div>
+        
+        </form>
+            </div>
+          </div>
+
+           
+</div>
+
+    </div>
+    <%- include('partials/footer.ejs') %> 
+</body>
+<%- include('partials/footerPlugin.ejs')  %>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <% if(typeof title == "undefined"){%>
+            <title>EMSLEM</title>
+        <%}else{%>
+        <title><%= title  %> </title>
+        <%} %> 
+       
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
+
+        <meta property="og:url"           content="https://www.your-domain.com/your-page.html" />
+<meta property="og:type"          content="website" />
+<meta property="og:title"         content="Your Website Title" />
+<meta property="og:description"   content="Your description" />
+<meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" />
+
+
+
+        <%- include('partials/headerPlugin.ejs') %> 
+        
+       
+    </head>
+
+    <body data-spy="scroll" data-target=".navbar" data-offset="51">
+        <%- include('partials/navbar') %> 
+
+
+       <!-- content goes here -->
+       <%-body  %> 
+
+       <section class="f-footer">
+
+
+
+

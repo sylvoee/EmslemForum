@@ -1,0 +1,499 @@
+
+
+    <body data-spy="scroll" data-target=".navbar" data-offset="51">
+        <div class="portfolio" id="portfolio">
+            <div class="container">
+                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                    <p>All Blogs</p>
+                    <h4 class="h5">Select Category and <em>SCROLL</em> down to see all</h4>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <ul id="portfolio-filter">
+                            <li data-filter="*" class="filter-active">All</li>
+                            <li data-filter=".tourism " class="filter-active">Toutrism</li>
+                            <li data-filter=".Business" class="filter-active">Business</li>
+                            <li data-filter=".Vacancy" class="filter-active">Vacancies</li>
+                            <li data-filter=".Entertainment" class="filter-active">Entertainment</li>
+                            <li data-filter=".Politics" class="filter-active">Politics</li>
+                            <li data-filter=".Culture" class="filter-active">Culture</li>
+                            <li data-filter=".Fashion" class="filter-active">fashion</li>
+                            <li data-filter=".Sport" class="filter-active">Sport</li>
+                            <li data-filter=".Others">Others</li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="row portfolio-container">
+
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item  wow fadeInUp" data-wow-delay="0.0s">
+                         <% if(typeof data == 'undefined'){%>
+                          <p></p>
+                         <%}else{
+                         data.forEach((dt)=>{%>
+                            <% if (dt) {%>
+                            <div class="portfolio-wrap" >
+                            <div class="portfolio-img">
+                            <% if(typeof dt.image[0] == 'undefined'){%>
+                <img src="img/hero.png" style="width: 60%;" alt="Alt-pix">         
+                            <%}else{%>
+             <img src="/uploads/<%= dt.image[0].filename %>" style="height: 60vh;" alt="Blog">
+                           <% } %>
+                            </div>
+                            <div class="">
+        
+                                <h4 class="h4"><%= dt.title  %> </h4>
+                            </div>
+                            <div class="card mt-2">
+                            <div class="card-body">
+                                
+                                <a class="btn" href="viewPost/<%= dt.id  %> " class = "p-2"><b class="h5">More</b> <i class="fa fa-angle-info"></i></a>
+                                <% if(typeof dt.image[0] == 'undefined'){%>
+                        <a class="btn" href="/img/hero.png" data-lightbox="portfolio">+</a>
+                                <%}else{%>
+                        <a class="btn" href="/uploads/<%= dt.image[0].filename %>" data-lightbox="portfolio">+</a>
+                               <%}%>
+                                
+                                <i class="far fa-calendar-alt"></i><%= dt.createdAt.toLocaleString('en-US') %></p>
+                                 
+                            </div>
+                            </div>
+                             
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item  wow fadeInUp" data-wow-delay="0.2s">
+                        <%} %> 
+                         <%})%>
+                        </div>
+                        <%}%>
+                 
+
+
+
+
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item Politics wow fadeInUp" data-wow-delay="0.0s">
+                         <% if(typeof data == 'undefined'){%>
+                          <p></p>
+                         <%}else{
+                         data.forEach((dt)=>{%>
+                            <% if (dt.category == 'Politics') {%>
+                            <div class="portfolio-wrap" >
+                            <div class="portfolio-img">
+                        <% if(typeof dt.image[0] == 'undefined'){%>
+                <img src="img/hero.png" style="width: 60%;" alt="Alt-pix">         
+                            <%}else{%>
+             <img src="/uploads/<%= dt.image[0].filename %>" style="height: 60vh;" alt="Blog">
+                           <% } %>
+                            </div>
+                            <div class="">
+        
+                                <h4 class="h4"><%= dt.title  %> </h4>
+                            </div>
+                            <div class="card mt-2">
+                            <div class="card-body">
+                                
+                                <a class="btn" href="viewPost/<%= dt.id  %> " class = "p-2"><b class="h5">More</b> <i class="fa fa-angle-info"></i></a>
+                                <% if(typeof dt.image[0] == 'undefined'){%>
+                        <a class="btn" href="/img/hero.png" data-lightbox="portfolio">+</a>
+                                <%}else{%>
+                        <a class="btn" href="/uploads/<%= dt.image[0].filename %>" data-lightbox="portfolio">+</a>
+                               <%}%>
+                                <i class="far fa-calendar-alt"></i><%= dt.createdAt.toLocaleString('en-US') %></p>
+                            </div>
+                            </div>
+                             
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item Politics wow fadeInUp" data-wow-delay="0.2s">
+                        <%} %> 
+                         <%})%>
+                        </div>
+                        <%}%>
+
+
+
+
+                        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item Sport wow fadeInUp" data-wow-delay="0.0s">
+                         <% if(typeof data == 'undefined'){%>
+                          <p></p>
+                         <%}else{
+                         data.forEach((dt)=>{%>
+                            <% if (dt.category == 'Sport') {%>
+                            <div class="portfolio-wrap" >
+                            <div class="portfolio-img">
+                                <% if(typeof dt.image[0] == 'undefined'){%>
+                <img src="img/hero.png" style="width: 60%;" alt="Alt-pix">         
+                            <%}else{%>
+             <img src="/uploads/<%= dt.image[0].filename %>" style="height: 60vh;" alt="Blog">
+                           <% } %>
+                            </div>
+                            <div class="">
+        
+                                <h4 class="h4"><%= dt.title  %> </h4>
+                            </div>
+                            <div class="card mt-2">
+                            <div class="card-body">
+                                
+                                <a class="btn" href="viewPost/<%= dt.id  %> " class = "p-2"><b class="h5">More</b> <i class="fa fa-angle-info"></i></a>
+                                <% if(typeof dt.image[0] == 'undefined'){%>
+                        <a class="btn" href="/img/hero.png" data-lightbox="portfolio">+</a>
+                                <%}else{%>
+                        <a class="btn" href="/uploads/<%= dt.image[0].filename %>" data-lightbox="portfolio">+</a>
+                               <%}%>
+                                <i class="far fa-calendar-alt"></i><%= dt.createdAt.toLocaleString('en-US') %></p>
+                            </div>
+                            </div>
+                             
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item Sport wow fadeInUp" data-wow-delay="0.2s">
+                        <%} %> 
+                         <%})%>
+                        </div>
+                        <%}%> 
+
+
+
+
+                        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item Tourism wow fadeInUp" data-wow-delay="0.0s">
+                         <% if(typeof data == 'undefined'){%>
+                          <p></p>
+                         <%}else{
+                         data.forEach((dt)=>{%>
+                            <% if (dt.category == 'Tourism') {%>
+                            <div class="portfolio-wrap" >
+                            <div class="portfolio-img">
+                                <% if(typeof dt.image[0] == 'undefined'){%>
+                <img src="img/hero.png" style="width: 60%;" alt="Alt-pix">         
+                            <%}else{%>
+             <img src="/uploads/<%= dt.image[0].filename %>" style="height: 60vh;" alt="Blog">
+                           <% } %>
+                            </div>
+                            <div class="">
+        
+                                <h4 class="h4"><%= dt.title  %> </h4>
+                            </div>
+                            <div class="card mt-2">
+                            <div class="card-body">
+                                
+                                <a class="btn" href="viewPost/<%= dt.id  %> " class = "p-2"><b class="h5">More</b> <i class="fa fa-angle-info"></i></a>
+                                <% if(typeof dt.image[0] == 'undefined'){%>
+                        <a class="btn" href="/img/hero.png" data-lightbox="portfolio">+</a>
+                                <%}else{%>
+                        <a class="btn" href="/uploads/<%= dt.image[0].filename %>" data-lightbox="portfolio">+</a>
+                               <%}%>
+                                <i class="far fa-calendar-alt"></i><%= dt.createdAt.toLocaleString('en-US') %></p>
+                            </div>
+                            </div>
+                             
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item Tourism wow fadeInUp" data-wow-delay="0.2s">
+                        <%} %> 
+                         <%})%>
+                        </div>
+                        <%}%> 
+
+
+
+
+
+
+
+<div class="col-lg-4 col-md-6 col-sm-12 portfolio-item Vacancy wow fadeInUp" data-wow-delay="0.0s">
+                         <% if(typeof data == 'undefined'){%>
+                          <p></p>
+                         <%}else{
+                         data.forEach((dt)=>{%>
+                            <% if (dt.category == 'Vacancy') {%>
+                            <div class="portfolio-wrap" >
+                            <div class="portfolio-img">
+                                <% if(typeof dt.image[0] == 'undefined'){%>
+                <img src="img/hero.png" style="width: 60%;" alt="Alt-pix">         
+                            <%}else{%>
+             <img src="/uploads/<%= dt.image[0].filename %>" style="height: 60vh;" alt="Blog">
+                           <% } %>
+                            </div>
+                            <div class="">
+        
+                                <h4 class="h4"><%= dt.title  %> </h4>
+                            </div>
+                            <div class="card mt-2">
+                            <div class="card-body">
+                                
+                                <a class="btn" href="viewPost/<%= dt.id  %> " class = "p-2"><b class="h5">More</b> <i class="fa fa-angle-info"></i></a>
+                                <% if(typeof dt.image[0] == 'undefined'){%>
+                        <a class="btn" href="/img/hero.png" data-lightbox="portfolio">+</a>
+                                <%}else{%>
+                        <a class="btn" href="/uploads/<%= dt.image[0].filename %>" data-lightbox="portfolio">+</a>
+                               <%}%>
+                                <i class="far fa-calendar-alt"></i><%= dt.createdAt.toLocaleString('en-US') %></p>
+                            </div>
+                            </div>
+                             
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item Vacancy wow fadeInUp" data-wow-delay="0.2s">
+                        <%} %> 
+                         <%})%>
+                        </div>
+                        <%}%>   
+
+
+
+
+<div class="col-lg-4 col-md-6 col-sm-12 portfolio-item Business wow fadeInUp" data-wow-delay="0.0s">
+                         <% if(typeof data == 'undefined'){%>
+                          <p></p>
+                         <%}else{
+                         data.forEach((dt)=>{%>
+                            <% if (dt.category == 'Business') {%>
+                            <div class="portfolio-wrap" >
+                            <div class="portfolio-img">
+                                <% if(typeof dt.image[0] == 'undefined'){%>
+                <img src="img/hero.png" style="width: 60%;" alt="Alt-pix">         
+                            <%}else{%>
+             <img src="/uploads/<%= dt.image[0].filename %>" style="height: 60vh;" alt="Blog">
+                           <% } %>
+                            </div>
+                            <div class="">
+        
+                                <h4 class="h4"><%= dt.title  %> </h4>
+                            </div>
+                            <div class="card mt-2">
+                            <div class="card-body">
+                                
+                                <a class="btn" href="viewPost/<%= dt.id  %> " class = "p-2"><b class="h5">More</b> <i class="fa fa-angle-info"></i></a>
+                                <% if(typeof dt.image[0] == 'undefined'){%>
+                        <a class="btn" href="/img/hero.png" data-lightbox="portfolio">+</a>
+                                <%}else{%>
+                        <a class="btn" href="/uploads/<%= dt.image[0].filename %>" data-lightbox="portfolio">+</a>
+                               <%}%>
+                                <i class="far fa-calendar-alt"></i><%= dt.createdAt.toLocaleString('en-US') %></p>
+                            </div>
+                            </div>
+                             
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item Business wow fadeInUp" data-wow-delay="0.2s">
+                        <%} %> 
+                         <%})%>
+                        </div>
+                        <%}%>                        
+
+
+                          
+
+                        
+                        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item Entertainment wow fadeInUp" data-wow-delay="0.0s">
+                         <% if(typeof data == 'undefined'){%>
+                          <p></p>
+                         <%}else{
+                         data.forEach((dt)=>{%>
+                            <% if (dt.category == 'Entertainment') {%>
+                            <div class="portfolio-wrap" >
+                            <div class="portfolio-img">
+                                <% if(typeof dt.image[0] == 'undefined'){%>
+                <img src="img/hero.png" style="width: 60%;" alt="Alt-pix">         
+                            <%}else{%>
+             <img src="/uploads/<%= dt.image[0].filename %>" style="height: 60vh;" alt="Blog">
+                           <% } %>
+                            </div>
+                            <div class="">
+        
+                                <h4 class="h4"><%= dt.title  %> </h4>
+                            </div>
+                            <div class="card mt-2">
+                            <div class="card-body">
+                                
+                                <a class="btn" href="viewPost/<%= dt.id  %> " class = "p-2"><b class="h5">More</b> <i class="fa fa-angle-info"></i></a>
+                                <% if(typeof dt.image[0] == 'undefined'){%>
+                        <a class="btn" href="/img/hero.png" data-lightbox="portfolio">+</a>
+                                <%}else{%>
+                        <a class="btn" href="/uploads/<%= dt.image[0].filename %>" data-lightbox="portfolio">+</a>
+                               <%}%>
+                                <i class="far fa-calendar-alt"></i><%= dt.createdAt.toLocaleString('en-US') %></p>
+                            </div>
+                            </div>
+                             
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item Entertainment wow fadeInUp" data-wow-delay="0.2s">
+                        <%} %> 
+                         <%})%>
+                        </div>
+                        <%}%>    
+
+
+
+
+<div class="col-lg-4 col-md-6 col-sm-12 portfolio-item Tourism wow fadeInUp" data-wow-delay="0.0s">
+                         <% if(typeof data == 'undefined'){%>
+                          <p></p>
+                         <%}else{
+                         data.forEach((dt)=>{%>
+                            <% if (dt.category == 'Tourism') {%>
+                            <div class="portfolio-wrap" >
+                            <div class="portfolio-img">
+                                <% if(typeof dt.image[0] == 'undefined'){%>
+                <img src="img/hero.png" style="width: 60%;" alt="Alt-pix">         
+                            <%}else{%>
+             <img src="/uploads/<%= dt.image[0].filename %>" style="height: 60vh;" alt="Blog">
+                           <% } %>
+                            </div>
+                            <div class="">
+        
+                                <h4 class="h4"><%= dt.title  %> </h4>
+                            </div>
+                            <div class="card mt-2">
+                            <div class="card-body">
+                                
+                                <a class="btn" href="viewPost/<%= dt.id  %> " class = "p-2"><b class="h5">More</b> <i class="fa fa-angle-info"></i></a>
+                                <% if(typeof dt.image[0] == 'undefined'){%>
+                        <a class="btn" href="/img/hero.png" data-lightbox="portfolio">+</a>
+                                <%}else{%>
+                        <a class="btn" href="/uploads/<%= dt.image[0].filename %>" data-lightbox="portfolio">+</a>
+                               <%}%>
+                                <i class="far fa-calendar-alt"></i><%= dt.createdAt.toLocaleString('en-US') %></p>
+                            </div>
+                            </div>
+                             
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item Tourism wow fadeInUp" data-wow-delay="0.2s">
+                        <%} %> 
+                         <%})%>
+                        </div>
+                        <%}%>                                             
+           
+
+
+                        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item Culture wow fadeInUp" data-wow-delay="0.0s">
+                         <% if(typeof data == 'undefined'){%>
+                          <p></p>
+                         <%}else{
+                         data.forEach((dt)=>{%>
+                            <% if (dt.category == 'Culture') {%>
+                            <div class="portfolio-wrap" >
+                            <div class="portfolio-img">
+                                <% if(typeof dt.image[0] == 'undefined'){%>
+                <img src="img/hero.png" style="width: 60%;" alt="Alt-pix">         
+                            <%}else{%>
+             <img src="/uploads/<%= dt.image[0].filename %>" style="height: 60vh;" alt="Blog">
+                           <% } %>
+                            </div>
+                            <div class="">
+        
+                                <h4 class="h4"><%= dt.title  %> </h4>
+                            </div>
+                            <div class="card mt-2">
+                            <div class="card-body">
+                                
+                                <a class="btn" href="viewPost/<%= dt.id  %> " class = "p-2"><b class="h5">More</b> <i class="fa fa-angle-info"></i></a>
+                                <% if(typeof dt.image[0] == 'undefined'){%>
+                        <a class="btn" href="/img/hero.png" data-lightbox="portfolio">+</a>
+                                <%}else{%>
+                        <a class="btn" href="/uploads/<%= dt.image[0].filename %>" data-lightbox="portfolio">+</a>
+                               <%}%>
+                                <i class="far fa-calendar-alt"></i><%= dt.createdAt.toLocaleString('en-US') %></p>
+                            </div>
+                            </div>
+                             
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item Culture wow fadeInUp" data-wow-delay="0.2s">
+                        <%} %> 
+                         <%})%>
+                        </div>
+                        <%}%>
+
+
+                        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item Others wow fadeInUp" data-wow-delay="0.0s">
+                         <% if(typeof data == 'undefined'){%>
+                          <p></p>
+                         <%}else{
+                         data.forEach((dt)=>{%>
+                            <% if (dt.category == 'Others') {%>
+                            <div class="portfolio-wrap" >
+                            <div class="portfolio-img">
+                                <% if(typeof dt.image[0] == 'undefined'){%>
+                <img src="img/hero.png" style="width: 60%;" alt="Alt-pix">         
+                            <%}else{%>
+             <img src="/uploads/<%= dt.image[0].filename %>" style="height: 60vh;" alt="Blog">
+                           <% } %>
+                            </div>
+                            <div class="">
+        
+                                <h4 class="h4"><%= dt.title  %> </h4>
+                            </div>
+                            <div class="card mt-2">
+                            <div class="card-body">
+                                
+                                <a class="btn" href="viewPost/<%= dt.id  %> " class = "p-2"><b class="h5">More</b> <i class="fa fa-angle-info"></i></a>
+                                <% if(typeof dt.image[0] == 'undefined'){%>
+                        <a class="btn" href="/img/hero.png" data-lightbox="portfolio">+</a>
+                                <%}else{%>
+                        <a class="btn" href="/uploads/<%= dt.image[0].filename %>" data-lightbox="portfolio">+</a>
+                               <%}%>
+                                <i class="far fa-calendar-alt"></i><%= dt.createdAt.toLocaleString('en-US') %></p>
+                            </div>
+                            </div>
+                             
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item Others wow fadeInUp" data-wow-delay="0.2s">
+                        <%} %> 
+                         <%})%>
+                        </div>
+                        <%}%>  
+                        
+                        
+
+
+                        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item Fashion wow fadeInUp" data-wow-delay="0.0s">
+                         <% if(typeof data == 'undefined'){%>
+                          <p></p>
+                         <%}else{
+                         data.forEach((dt)=>{%>
+                            <% if (dt.category == 'Fashion') {%>
+                            <div class="portfolio-wrap" >
+                            <div class="portfolio-img">
+                                <% if(typeof dt.image[0] == 'undefined'){%>
+                <img src="img/hero.png" style="width: 60%;" alt="Alt-pix">         
+                            <%}else{%>
+             <img src="/uploads/<%= dt.image[0].filename %>" style="height: 60vh;" alt="Blog">
+                           <% } %>
+                            </div>
+                            <div class="">
+        
+                                <h4 class="h4"><%= dt.title  %> </h4>
+                            </div>
+                            <div class="card mt-2">
+                            <div class="card-body">
+                                
+                                <a class="btn" href="viewPost/<%= dt.id  %> " class = "p-2"><b class="h5">More</b> <i class="fa fa-angle-info"></i></a>
+                                <% if(typeof dt.image[0] == 'undefined'){%>
+                        <a class="btn" href="/img/hero.png" data-lightbox="portfolio">+</a>
+                                <%}else{%>
+                        <a class="btn" href="/uploads/<%= dt.image[0].filename %>" data-lightbox="portfolio">+</a>
+                               <%}%>
+                                <i class="far fa-calendar-alt"></i><%= dt.createdAt.toLocaleString('en-US') %></p>
+                            </div>
+                            </div>
+                             
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item Fashion wow fadeInUp" data-wow-delay="0.2s">
+                        <%} %> 
+                         <%})%>
+                        </div>
+                        <%}%>            
+        
+        </div>
+
+        <%- include('partials/footer.ejs') %> 
+
+
+    
+       
+      

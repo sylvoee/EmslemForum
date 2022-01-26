@@ -1,0 +1,80 @@
+
+
+    <body data-spy="scroll" data-target=".navbar" data-offset="21">
+       
+        
+        <!-- Blog Start -->
+        <div class="contact wow fadeInUp" data-wow-delay="0.1s" id="contact">
+         
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-10">
+                            <div class="contact-form">
+                                <div id="success"></div>
+                        
+                                <% if(data == 'undefined'){%>
+                                    <P></P>
+                                
+                                    <%}else{%>
+                  
+                
+     <form action ="/edit-post/<%= data.id  %>?_method=PUT" method="POST" id="contactForm" novalidate="novalidate" enctype="multipart/form-data">
+                            <h3 class = "text-white">Edit Blog Post</h3>
+                       
+                        <hr class = "mt-2">
+                        <div class="control-group">
+                            <label for="" class = "text-white">Blog Category</label>
+                            <Select name = "category" class = "form-control bg-danger text-white text-decoration-none" required>
+                            <option value="Politics">Politic</option>
+                            <option value="Sport">Sport</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Culture">Culture</option>
+                            <option value="Tourism">Tourism</option>
+                            <option value="Fashion">Fashion</option>
+                            <option value="Vacancy">Vacancies</option>
+                            <option value ="Business">Business</option>
+                            <option value="Others">Others</option>
+                            </Select>
+                            <p class="help-block"></p>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label for="">BLOG TITLE</label>
+                            <textarea class="form-control text-white" id="" cols="5" rows="7"  name="title"> <%= data.title  %></textarea>
+                        </div>
+                
+                        
+                    
+                    <textarea required   id="editor" class="form-control "  placeholder="Blog Message" name = "blog"  data-validation-required-message="ENTER YOUR BLOG MESSAGE">
+                        <%- data.blog  %>
+                    </textarea>
+                    <p class="help-block"></p>
+                    </div>
+                    
+                    <div>
+                    <button class="btn" type="submit" id="sendMessageButton">Post Blog</button>
+                    </div>
+
+                    <%} %> 
+                    </form>
+                </div>
+                
+          
+              </div>
+            </div>
+          </div>         
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Blog post End -->
+
+<%- include('partials/footer.ejs') %> 
+
+      

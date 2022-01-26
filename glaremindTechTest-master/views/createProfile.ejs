@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+       
+        <title> Edit Profile </title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
+
+        <%- include('partials/headerPlugin.ejs') %> 
+    </head>
+
+    <body data-spy="scroll" data-target=".navbar" data-offset="51">
+    
+       <!-- Blog Start -->
+       <div class="blog" id="blog">
+        <div class="container">
+            <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+               <div> <a href="/" class = "btn"><i class="fa fa-home"></i></a></div>
+               <% if(typeof aUser.profileStatus == 'completed' ){%>
+              <p> Profile completed Ok </p>
+               <%} %> 
+                <p>Who Are You ?</p>
+                <!-- <p><%= docs._id  %> </p> -->
+                <h3><%= docs.name %> </h3>
+            </div>
+             
+            <div class="row my-profile" style="height: 100vh; font-family:cursive">
+              
+            <div class="col-sm-5 image-area">
+              <div class="img profile-image">
+  <form method="post" action="/edit-profile-image/:id?_method = PUT" enctype="multipart/form-data">
+                <!-- Button to Open the Modal -->
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+              Change Profile Picture
+              </button>
+              
+              <!-- The Modal -->
+              <div class="modal" id="myModal">
+              <div class="modal-dialog">
+              <div class="modal-content">
+              
+              <!-- Modal Header -->
+              <div class="modal-header">
+              <h4 class="modal-title">Upload Profile Image</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              
+              <!-- Modal body -->
+              <div class="modal-body">
+                <label for="Upload Profile image"></label>
+             <input type="file" name="profileImage">
+             <div class="mt-3">
+              <button type="submit" class="btn btn-danger">Upload</button>
+             </div>
+              </div>
+              
+              <!-- Modal footer -->
+              <div class="modal-footer">
+              <button type="submit" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+           
+              </div>
+              </div>
+              </div>
+                
+            </form>
+              </div>
+            </div>
+   
+             
+            <div class="col-sm-7 ">
+                 
+             <% if(docs._id == aUser._id){%>
+              
+              <div class="row info wow zoomIn">
+                <div class="col-sm-5">
+                  <form action="/create-profile" method="post">
+                  <h4 class="h4">Biography</h4>
+                  <em>Born on <input type="date" name="DOB" placeholder="August 12th 1990" required></em>
+                  <br>
+                  <em>From <input type="text" placeholder="Lagos Nigeria" name = "place"></em>
+                  <br>
+                  <em>Am an <select  id="" name = "person">
+                   <option value="Introvert">Introvert</option>
+                   <option value="Extrovert">Extrovert</option>
+                   <option value="None">None</option>
+                   </select></em>
+ 
+                  <i><select  id="" name = "maritalStatus">
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                    <option value="Divorce">Divorce</option>
+                  </select></i>
+                  <i><select  id="" name = "sex">
+                   <option value="Male">Male</option>
+                   <option value="Female">Female</option>
+                 </select></i>
+                  <em>Graduate of <input type="text" name = "institute" placeholder="Benson Idahosa University Benin nigeria"></em>
+                  <hr class="text-warning">
+ 
+                  <b>Occupation <input type="text" name="occupation" placeholder="Software Developer"></b>
+                  <p>
+                    A lover of <input type="text" name="hobby" placeholder="Politics and Sport">
+                  </p>
+                  <details placeholder = "info"> <b>About Nature of Your Job/Business / Occupation/connect</b>
+                    <p>
+                     <textarea name="purpose" id="" cols="30" rows="10"> 
+                       Am a Good footballer, and am currently looking for a club
+                     </textarea>
+                    </p>
+                  </details>
+ 
+                </div>
+                <div class="col-sm-5">
+                  <h4 class="h4">Favourite Quote </h4>
+                  <p><input type="text" name="quote" placeholder="It pays to be patient"></p>
+                  <hr>
+                  <h4 class="h4">Bordering Issues</h4>
+                  <p><input type="text" name ="issue" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto magnam maxime facilis vel, libero non."></p>
+                <hr>
+                <h4 class="h4">Social Media Handle(s)</h4>
+                <hr>
+                <div class="team-social">
+                 Facebook : <input type="url" name="facebook" placeholder="www.facebook.com/youProfile"> 
+                 instagram : <input type="url" name="instagram" placeholder="www.instagram.com/youProfile"> 
+                </div>
+ 
+         
+                </div>
+               </div>
+ 
+
+             <%}else{%>
+              
+              <h3>Unauthorise</h3>
+              <hr class="mb-4">
+            <p>You can not Edit another Person Profile</p>
+             <%} %> 
+
+              
+
+
+              <div>
+                <button type ="submit" class = "btn btn-info">Create Profile</button>
+              </div>
+           </div>
+          </form>
+         
+            </div>
+            <!-- row rends here -->
+
+            </div>
+
+    </div>
+    
+      
+       
+      <section class="mt-4">
+      <div>
+      <!-- Footer End -->
+      <!-- <div class = "text-center bg-danger text-white">
+        <p >Alright Reserved</p>
+        <p>Elslem forum</p>
+        <p>2021</p>
+    </div> -->
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+       <script src="lib/easing/easing.min.js"></script>
+      <script src="lib/wow/wow.min.js"></script>
+      <script src="lib/waypoints/waypoints.min.js"></script>
+      <script src="lib/typed/typed.min.js"></script>
+      <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+      <script src="lib/isotope/isotope.pkgd.min.js"></script> -->
+      <script src="lib/lightbox/js/lightbox.min.js"></script>
+      
+      <!-- Contact Javascript File -->
+      <!-- <script src="mail/jqBootstrapValidation.min.js"></script>
+      <script src="mail/contact.js"></script> -->
+
+      <!-- Template Javascript -->
+      <script src="/js/main.js"></script>
+    </div>
+    </section>
+    <%- include('partials/footer.ejs') %> 
+  </body>
+</html>
+
+<%- include('partials/footer.ejs') %> 

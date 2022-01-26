@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>All Blog Post</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
+
+        <%- include('partials/headerPlugin.ejs') %> 
+    </head>
+
+    <body data-spy="scroll" data-target=".navbar" data-offset="51">
+        <%- include('partials/navbar') %> 
+       <!-- Blog Start -->
+       <div class="blog" id="blog">
+        <div class="container">
+            <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                <p>From Blog</p>
+                <h2>Latest Articles</h2>
+            </div>
+            <div class="tabs">
+                <ul class="tab">
+                    <li><a href="#all" class="tablinks" onclick="openCity(event, 'all')">All Blog Post </a></li>
+                    <li><a href="#tourism" class="tablinks" onclick="openCity(event, 'tourism')">Tourism </a></li>
+                    <li><a href="#Entertainment" class="tablinks" onclick="openCity(event, 'Entertainment')">Entertainment </a></li>
+                    <li><a href="#sport" class="tablinks" onclick="openCity(event, 'sport')">Sport </a></li>
+                    <li><a href="#Business" class="tablinks" onclick="openCity(event, 'Business')">Business and Job Vacancies</a></li>
+                    <li><a href="#politics" class="tablinks" onclick="openCity(event, 'politics')">Politics </a></li>
+                     <li><a href="#fashion" class="tablinks" onclick="openCity(event, 'fashion')">Fashion</a></li>
+                    <li><a href="#culture" class="tablinks" onclick="openCity(event, 'culture')">Culture </a></li>
+                    <li><a href="#others" class="tablinks" onclick="openCity(event, 'others')">others </a></li>
+                  </ul>
+                  <div class="row">
+                  <section class = "tabs-details">
+                    <div id="all" class="tabcontent">
+                      
+                        <h3>all blog post</h3>
+                        <% if(typeof data == 'undefined'){%>
+                            <p></p>
+                           <%}else{%>
+                               <% data.forEach(dt=>{%>
+                                    <div class="blog-item wow fadeInUp  blog-row" data-wow-delay="0.3s">
+                                        <div class="blog-img">
+                                            <img src="/uploads/<%= dt.image %>" style="height: 70vh;" alt="Blog">
+                                        </div>
+                                        <div class="blog-text">
+                                            <h2><%= dt.title %></h2>
+                                            <div class="blog-meta">
+                                                <p><i class="far fa-user"></i></p>
+                                                <p><i class="far fa-list-alt"></i><%= dt.title %></p>
+                                                <p><i class="far fa-calendar-alt"></i><%= dt.createdAt.toLocaleString('en-US') %></p>
+                                                <br>
+                                               
+                                               
+                                            </div>
+
+
+                    <p><i class = "fa fa-user"><% %> </i><i class="far fa-comments"></i><%%></p>
+                                            <a class="btn" href="viewPost/<%= dt.id  %> ">Read More <i class="fa fa-angle-right"></i></a>
+                                        </div>
+                                    </div>
+                                     
+                             
+                                    
+                               <%}) %> 
+                           <%}%>
+                       
+                            
+                        </div>
+                    </div>
+                </div>
+                      </div>
+                    
+                    <div id="tourism" class="tabcontent">
+                        <div class="col-lg-10">
+                        <h3>Tourism</h3>
+                        <% if(typeof data == 'undefined'){%>
+                            <p></p>
+                           <%}else{%>
+                               <% data.forEach(dt=>{%>
+                                <% if(dt.category == 'Tourism'){%>
+
+                                    <div class="blog-item wow fadeInUp offset-2" data-wow-delay="0.3s">
+                                        <div class="blog-img">
+                                            <img src="img/blog-2.jpg" style="height:60vh" alt="Blog">
+                                        </div>
+                                        <div class="blog-text">
+                                            <h2><%= dt.title %></h2>
+                                            <div class="blog-meta">
+                                                <p><i class="far fa-user"></i><%= dt.user.name %></p>
+                                                <p><i class="far fa-list-alt"></i><%= dt.title %></p>
+                                                <p><i class="far fa-calendar-alt"></i><%= dt.createdAt %></p>
+                                                <p><i class="far fa-comments"></i><%= dt.comment %></p>
+                                                <p> <%- dt.blog %>  </p>
+                                            </div>
+                                            
+                                            <p><i class = "fa fa-user"><% %> </i><i class="far fa-comments"></i><% %></p>
+                                            <a class="btn" href="viewPost/<%= dt.id  %> ">Read More <i class="fa fa-angle-right"></i></a>
+                                        </div>
+                                    </div>
+                                     
+                                <%} %> 
+                                    
+                               <%}) %> 
+                           <%}%>
+                       
+                            
+                        </div>
+                    </div>
+                </div>
+                     
+                      
+                      <div id="Entertainment" class="tabcontent">
+                        <div class="col-lg-10">
+                        <h3>Entertainment</h3>
+                        <% if(typeof data == 'undefined'){%>
+                            <p></p>
+                           <%}else{%>
+                               <% data.forEach(dt=>{%>
+                                <% if(dt.category == 'Entertainment'){%>
+
+                                    <div class="blog-item wow fadeInUp offset-2" data-wow-delay="0.3s">
+                                        <div class="blog-img">
+                                            <img src="img/blog-2.jpg"  style="height:60vh" alt="Blog">
+                                        </div>
+                                        <div class="blog-text">
+                                            <h2><%= dt.title %></h2>
+                                            <div class="blog-meta">
+                                                <p><i class="far fa-user"></i><%= dt.user.name %></p>
+                                                <p><i class="far fa-list-alt"></i><%= dt.title %></p>
+                                                <p><i class="far fa-calendar-alt"></i><%= dt.createdAt %></p>
+                                                <p><i class="far fa-comments"></i><%= dt.comment %></p>
+                                                <p>
+                                                  <%- data.blog %>
+                                                 </p>
+                                            </div>
+                                            
+                                            <p><i class = "fa fa-user"><%=   %> </i><i class="far fa-comments"></i><% %></p>
+                                            <a class="btn" href="viewPost/<%= dt.id  %> ">Read More <i class="fa fa-angle-right"></i></a>
+                                        </div>
+                                    </div>
+                                     
+                                <%} %> 
+                                    
+                               <%}) %> 
+                           <%}%>
+                       
+                            
+                        </div>
+                    </div>
+                </div>
+                     
+                      
+                      <div id="sport" class="tabcontent">
+                        <div class="col-sm--12">
+                        <h3>Entertainment</h3>
+                        <% if(typeof data == 'undefined'){%>
+                            <p></p>
+                           <%}else{%>
+                               <% data.forEach(dt=>{%>
+                                <% if(dt.category == 'Sport'){%>
+
+                                    <div class="blog-item wow fadeInUp " data-wow-delay="0.3s">
+                                        <div class="blog-img">
+                                            <img src="img/blog-2.jpg "  alt="Blog">
+                                        </div>
+                                        <div class="blog-text">
+                                            <h2><%= dt.title %></h2>
+                                            <div class="blog-meta">
+                                                <p><i class="far fa-user"></i><%= dt.user.name %></p>
+                                                <p><i class="far fa-list-alt"></i><%= dt.title %></p>
+                                                <p><i class="far fa-calendar-alt"></i><%= dt.createdAt %></p>
+                                               
+                                                <p>
+                                                  <%- data.blog %>
+                                                 </p>
+                                            </div>
+                                            
+                                            <p><i class = "fa fa-user"> </i><i class="far fa-comments"></i><% %></p>
+                                            <a class="btn" href="viewPost/<%= dt.id  %> ">Read More <i class="fa fa-angle-right"></i></a>
+                                        </div>
+                                    </div>
+                                     
+                                <%} %> 
+                                    
+                               <%}) %> 
+                           <%}%>
+                       
+                           <hr class = "mb-3">
+                        </div>
+                    </div>
+                </div>
+               
+                     
+
+
+                     <div id="Business" class="tabcontent">
+                        <div class="col-lg-10">
+                        <h3>Business and Job Vacancies</h3>
+                        <% if(typeof data == 'undefined'){%>
+                            <p></p>
+                           <%}else{%>
+                               <% data.forEach(dt=>{%>
+                                <% if(dt.category == 'Business'){%>
+
+                                    <div class="blog-item wow fadeInUp offset-2" data-wow-delay="0.3s">
+                                        <div class="blog-img">
+                                            <img src="img/blog-2.jpg" alt="Blog">
+                                        </div>
+                                        <div class="blog-text">
+                                            <h2><%= dt.title %></h2>
+                                            <div class="blog-meta">
+                                                <p><i class="far fa-user"></i><%= dt.user.name %></p>
+                                                <p><i class="far fa-list-alt"></i><%= dt.title %></p>
+                                                <p><i class="far fa-calendar-alt"></i><%= dt.createdAt %></p>
+                                                
+                                                <p>
+                                                  <%- data.blog %>
+                                                 </p>
+                                            </div>
+                                            
+                                            <p><i class = "fa fa-user"><%=   %> </i><i class="far fa-comments"></i><% %></p>
+                                            <a class="btn" href="viewPost/<%= dt.id  %> ">Read More <i class="fa fa-angle-right"></i></a>
+                                        </div>
+                                    </div>
+                                     
+                                <%} %> 
+                                    
+                               <%}) %> 
+                           <%}%>
+                       
+                            
+                        </div>
+                    </div>
+                </div>
+                     
+                      
+                      <div id="politics" class="tabcontent">
+                        <div class="col-lg-10">
+                        <h3>Politics</h3>
+                        <% if(typeof data == 'undefined'){%>
+                            <p></p>
+                           <%}else{%>
+                               <% data.forEach(dt=>{%>
+                                <% if(dt.category == 'Politics'){%>
+
+                                    <div class="blog-item wow fadeInUp offset-2" data-wow-delay="0.3s">
+                                        <div class="blog-img">
+                                            <img src="img/blog-2.jpg" alt="Blog">
+                                        </div>
+                                        <div class="blog-text">
+                                            <h2><%= dt.title %></h2>
+                                            <div class="blog-meta">
+                                                <p><i class="far fa-user"></i></p>
+                                                <p><i class="far fa-list-alt"></i><%= dt.title %></p>
+                                                <p><i class="far fa-calendar-alt"></i><%= dt.createdAt %></p>
+                                               
+                                                <p>
+                                                  <%- data.blog %>
+                                                 </p>
+                                            </div>
+                                            
+                                            <p><i class = "fa fa-user"><%=   %> </i><i class="far fa-comments"></i><% %></p>
+                                            <a class="btn" href="viewPost/<%= dt.id  %> ">Read More <i class="fa fa-angle-right"></i></a>
+                                        </div>
+                                    </div>
+                                     
+                                <%} %> 
+                                    
+                               <%}) %> 
+                           <%}%>
+                       
+                            
+                        </div>
+                    </div>
+                </div>
+                    
+
+                      <div id="fashion" class="tabcontent">
+                        <div class="col-lg-10">
+                        <h3>Fashion Blog</h3>
+                        <% if(typeof data == 'undefined'){%>
+                            <p></p>
+                           <%}else{%>
+                               <% data.forEach(dt=>{%>
+                                <% if(dt.category == 'Fashion'){%>
+
+                                    <div class="blog-item wow fadeInUp offset-2" data-wow-delay="0.3s">
+                                        <div class="blog-img">
+                                            <img src="img/blog-2.jpg" alt="Blog">
+                                        </div>
+                                        <div class="blog-text">
+                                            <h2><%= dt.title %></h2>
+                                            <div class="blog-meta">
+                                                <p><i class="far fa-user"></i></p>
+                                                <p><i class="far fa-list-alt"></i><%= dt.title %></p>
+                                                <p><i class="far fa-calendar-alt"></i><%= dt.createdAt %></p>
+                                              
+                                                <p>
+                                                  <%- data.blog %>
+                                                 </p>
+                                            </div>
+                                            
+                                            <p><i class = "fa fa-user"><%=   %> </i><i class="far fa-comments"></i><% %></p>
+                                            <a class="btn" href="viewPost/<%= dt.id  %> ">Read More <i class="fa fa-angle-right"></i></a>
+                                        </div>
+                                    </div>
+                                     
+                                <%} %> 
+                                    
+                               <%}) %> 
+                           <%}%>
+                       
+                            
+                        </div>
+                    </div>
+                </div>
+                     
+
+                      <div id="culture" class="tabcontent">
+                        <div class="col-lg-10">
+                        <h3>Culture</h3>
+                        <% if(typeof data == 'undefined'){%>
+                            <p></p>
+                           <%}else{%>
+                               <% data.forEach(dt=>{%>
+                                <% if(dt.category == 'Culture'){%>
+
+                                    <div class="blog-item wow fadeInUp offset-2" data-wow-delay="0.3s">
+                                        <div class="blog-img">
+                                            <img src="img/blog-2.jpg" alt="Blog">
+                                        </div>
+                                        <div class="blog-text">
+                                            <h2><%= dt.title %></h2>
+                                            <div class="blog-meta">
+                                                <p><i class="far fa-user"></i></p>
+                                                <p><i class="far fa-list-alt"></i><%= dt.title %></p>
+                                                <p><i class="far fa-calendar-alt"></i><%= dt.createdAt %></p>
+                                              
+                                                <p>
+                                                  <%- data.blog %>
+                                                 </p>
+                                            </div>
+                                            
+                                            <p><i class = "fa fa-user"><%=   %> </i><i class="far fa-comments"></i><% %></p>
+                                            <a class="btn" href="viewPost/<%= dt.id  %> ">Read More <i class="fa fa-angle-right"></i></a>
+                                        </div>
+                                    </div>
+                                     
+                                <%} %> 
+                                    
+                               <%}) %> 
+                           <%}%>
+                       
+                            
+                        </div>
+                    </div>
+                </div>
+                    
+                      
+                      <div id="others" class="tabcontent">
+                        <div class="col-lg-10">
+                        <h3>Others Blog Post</h3>
+                        <% if(typeof data == 'undefined'){%>
+                            <p></p>
+                           <%}else{%>
+                               <% data.forEach(dt=>{%>
+                                <% if(dt.category == 'Others'){%>
+
+                                    <div class="blog-item wow fadeInUp offset-2" data-wow-delay="0.3s">
+                                        <div class="blog-img">
+                                            <img src="img/blog-2.jpg" alt="Blog">
+                                        </div>
+                                        <div class="blog-text">
+                                            <h2><%= dt.title %></h2>
+                                            <div class="blog-meta">
+                                                <p><i class="far fa-user"></i></p>
+                                                <p><i class="far fa-list-alt"></i><%= dt.title %></p>
+                                                <p><i class="far fa-calendar-alt"></i><%= dt.createdAt %></p>
+                                             
+                                            </div>
+                                            <p>
+                                              <%- data.blog %>
+                                            </p>
+                                            <p><i class = "fa fa-user"><%=   %> </i><i class="far fa-comments"></i><% %></p>
+                                            <a class="btn" href="viewPost/<%= dt.id  %> ">Read More <i class="fa fa-angle-right"></i></a>
+                                        </div>
+                                    </div>
+                                     
+                                <%} %> 
+                                    
+                               <%}) %> 
+                           <%}%>
+                       
+                            
+                        </div>
+                    </div>
+                </div>
+                     
+
+                  </section>
+        
+              </div>
+            
+                
+    </div>
+  
+    
+        
+       <%- include('partials/footer')  %> 

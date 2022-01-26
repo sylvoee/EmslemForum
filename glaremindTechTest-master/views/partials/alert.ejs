@@ -1,0 +1,23 @@
+
+<%if(typeof errors == 'undefined'){%>
+    <div class = " ">
+   <%}else{%>
+      <% errors.forEach((err) =>{ %>
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <strong> <p class = "text-danger"><%= err.msg %></p></strong> 
+              <button type="button" class="btn-close " data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+         
+      <% }) %> 
+   <%}%>
+
+   <%if(typeof msg == 'undefined'){%>
+      <p></p>
+     <%}else{%>
+
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong> <p><%= msg %></p></strong> 
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+     <%}%>

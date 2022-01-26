@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Email</title>
+    <%- include('partials/headerPlugin.ejs') %> 
+</head>
+<body class = "auth-form">
+    <div class="container  wow fadeInUp" daa-wow-deltay="0.1s">
+    
+
+    <div class = "form offset-3  mt-4 p-2">
+
+        <% if(typeof msg == 'undefined'){%>
+           <p></p>
+        <%}else{%>
+ <p><%= msg  %> </p>
+        <% } %> 
+           
+        <h3 class ="text-secondary offset-2">Confirm Email</h3>
+        <i class = "fa fa-info text-white "></i>
+        <hr class  = "text-white col-sm-3">
+
+      
+       <form action="/confirm-email" method="POST" class = "form-group col-md-6 " >
+        <%- include('partials/alert')  %> 
+        <div>
+            <label for="">Email</label>
+            <input type="email" class="email form-control" name = "email" minlength="8" placeholder="Pls Enter Email" >
+        </div>
+        
+        <div >
+            <button  class="confirm-email btn btn-warning form-control mt-2 p-2">Confirm Email</button>
+        </div>
+        
+        <div class = "p-4"><a href="/login" class = "text-decoration-none">Already have an account</a>
+            <a href="/signUP" class = "text-decoration-none m-2">Register</a>
+        </div>
+        <div>
+            <div>
+                
+            </div>
+            
+        </div>
+    
+    </form>
+   
+</div>
+
+    </div>
+</body>
+<%- include('partials/footerPlugin.ejs')  %>
+<%- include('partials/footer.ejs') %> 
+</html>

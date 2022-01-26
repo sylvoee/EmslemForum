@@ -1,0 +1,68 @@
+
+
+    <body data-spy="scroll" data-target=".navbar" data-offset="51">
+        
+     
+        <div class="portfolio " id="portfolio">
+            <div class="container">
+                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                    <p class="mt-5">All Blogs</p>
+                    <h3>Here is a list of Blogs</h3>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <ul id="portfolio-filter">
+                            <li data-filter="*" class="filter-active">All</li>
+                            <li data-filter=".filter-1">Others</li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="row portfolio-container">
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-1 wow fadeInUp" data-wow-delay="0.0s">
+                         <% if(typeof data == 'undefined'){%>
+                          <p></p>
+                         <%}else{
+                         data.forEach((dt)=>{%>
+                            <div class="portfolio-wrap">
+                            <div class="portfolio-img">
+                                <% if(typeof dt.image[0] == 'undefined'){%>
+                    <img src="/img/hero.png" style="height: 60vh;" alt="Blog">
+                                <%}else{%>
+                    <img src="/uploads/<%= dt.image[0].filename %>" style="height: 60vh;" alt="Blog">
+                                <%} %>
+                                
+                            </div>
+                            <div class="portfolio-text">
+                                <div>
+                                    <form method="POST" action="/delete-blog?_method=DELETE">
+                                    <input type="hidden" name = "id" value="<%= dt.id %>">
+
+                                    <% if(typeof dt.image[0] != 'undefined'){%>
+                                    <input type="hidden" name = "imageName" value="<%= dt.image[0].filename %>">
+                                    <%}%>
+
+
+                                    <button type = "submit" class = "btn btn-bg-danger"><i class ="fa fa-trash"></i></button>
+                                    </form>
+                                    <a href="/edit-post/<%= dt.id %>"><button class="btn btn-info"><i class ="fa fa-pen"></i></button></a>
+                                    </div>
+                                <h3><%= dt.title  %> </h3>
+                               
+                                <a class="btn" href="img/portfolio-1.jpg" data-lightbox="portfolio">+</a>
+                            </div>
+                             
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-2 wow fadeInUp" data-wow-delay="0.2s">
+                         <%})
+                         } %> 
+                        
+                        
+            </div>
+        </div>
+      
+        <%- include('partials/footer.ejs') %> 
+       
+        
+       
